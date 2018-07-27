@@ -9,17 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var textLable: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        
+        let segIndex = segmentedControl.selectedSegmentIndex
+        let segTitle:String = segmentedControl.titleForSegment(at: segIndex)!
+        switch segIndex {
+        case 0:
+            textLable.text = "\(segTitle) Segment Selected";
+        case 1:
+            textLable.text = "\(segTitle) Segment Selected";
+        case 2:
+            textLable.text = "\(segTitle) Segment Selected";
+        default:
+            textLable.text = "No Selection";
+        }
+        
+        
     }
-
-
 }
 
